@@ -1,0 +1,7 @@
+[user]
+	name = moisescrn
+  email = moisescarbofuster@hotmail.com
+[init]
+	defaultBranch = main
+[alias]
+	tree = log --graph --decorate --all
