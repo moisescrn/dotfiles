@@ -1,0 +1,28 @@
+# Place shell command in quotes and keysym on a new line
+# "SHELL_command"
+#   keysym
+
+# mute volume
+"${HOME}/scripts/volume.sh mute"
+  XF86AudioMute
+
+# lower volume
+"${HOME}/scripts/volume.sh lower"
+  XF86AudioLowerVolume
+
+# raise volume
+"${HOME}/scripts/volume.sh raise"
+  XF86AudioRaiseVolume
+
+
+# raise brightness
+"${HOME}/scripts/brightness.sh raise"
+  XF86MonBrightnessUp
+
+# lower brightness
+"${HOME}/scripts/brightness.sh lower"
+  XF86MonBrightnessDown
+
+# show open windows with rofi
+"/usr/bin/rofi -show window"
+  Mod4 + F1
