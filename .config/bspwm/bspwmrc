@@ -16,11 +16,15 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
-/usr/bin/feh --bg-fill ~/Fondos/fingolfin_and_melkor_2.png
-~/.config/polybar/launch.sh &
+/usr/bin/feh --bg-fill ~/Imágenes/Fondos/fingolfin_and_melkor_2.png
+#/usr/bin/feh --bg-fill ~/Imágenes/Fondos/fire_roomen2.png
+~/.config/polybar/teng_launch.sh &
+~/.config/polybar/scripts/generate_tengwar_date.sh &
+/usr/bin/eww daemon &
+/usr/bin/eww open tengwar_bar &
 /usr/bin/picom --config ~/.config/picom/picom.conf &
 /usr/bin/xbindkeys &
-redshift -c ~/.config/redshift/redshift.conf &
+/usr/bin/redshift -c ~/.config/redshift/redshift.conf &
 #~/scripts/bar/audio_bluetooth.sh &
 ~/scripts/bar/audio_bar.sh &
 ~/scripts/bar/brightness_bar.sh &

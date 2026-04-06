@@ -1,0 +1,21 @@
+(defwindow tengwar_bar
+  :monitor 0
+  :geometry (geometry :x "40%"
+                      :y "15px"
+                      :anchor "top center"
+                      :width "350px"
+                      :height "40px")
+  :stacking "bg"
+  :windowtype "desktop"
+  :exclusive false
+  :transparent true
+  :wm-ignore false
+  (tengwar-date))
+
+(defwidget tengwar-date []
+  (box :class "tengwar-box"
+       :halign "center"
+       :valign "center"
+       (image :path "/home/ringanaaro/.config/polybar/scripts/date.png"
+              :image-width 350
+              :image-height 40)))
