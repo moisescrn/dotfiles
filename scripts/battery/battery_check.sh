@@ -21,6 +21,10 @@ function get_current_percentage() {
 
 perc=$(get_current_percentage)
 
+if [ $perc -le $(($min + 5)) ]; then
+  /usr/bin/systemctl poweroff
+fi
+
 if [ $perc -le $(($min + 10)) ]; then
   /usr/bin/bspc desktop -f '^9' &
   /usr/bin/kitty --hold -e zsh -c "/usr/bin/echo -ne '\n Nivel de batería bajo. ¡Conécta el dispositivo a la corriente! \n'" &
@@ -32,5 +36,4 @@ elif [ $perc -le $min ]; then
 elif [ $perc -ge $max ]; then
   /usr/bin/bspc desktop -f '^9' &
   /usr/bin/kitty --hold -e zsh -c "/usr/bin/echo -ne '\n Nivel de batería demasiado alto \n '" &
-
 fi
