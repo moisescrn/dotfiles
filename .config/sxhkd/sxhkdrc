@@ -171,3 +171,7 @@ ctrl + alt + m
 # open obsidian
 super + shift + o
   /usr/bin/obsidian
+
+# toggle between normal and tengwar bar
+super + shift + ctrl + alt + b
+  /home/ringanaaro/.config/polybar/scripts/toggle_bar.sh

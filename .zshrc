@@ -66,6 +66,7 @@ alias lla='lsd -lha --group-dirs=first'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 alias gdb='gdb -q'
+alias graphics='amdgpu_top --gui & disown'
 
 alias l='clear' # clears the terminal
 alias rm='rm -vI' # "safer" remove
@@ -157,3 +158,12 @@ function cleartarget(){
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/home/ringanaaro/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<

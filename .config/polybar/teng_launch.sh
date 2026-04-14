@@ -19,6 +19,7 @@ polybar ethernet_bar -c ~/.config/polybar/teng_current.ini &
 # polybar vpn_bar -c ~/.config/polybar/current.ini &
 # polybar target_to_hack -c ~/.config/polybar/current.ini &
 
+polybar gpu_bar -c ~/.config/polybar/teng_current.ini &
 ## Right bar
 # polybar top -c ~/.config/polybar/current.ini &
 # polybar primary -c ~/.config/polybar/current.ini &
@@ -27,4 +28,4 @@ polybar battery_bar -c ~/.config/polybar/teng_current.ini &
 polybar cpu_bar -c ~/.config/polybar/teng_current.ini &
 polybar memory_bar -c ~/.config/polybar/teng_current.ini
 
-# Put the memory_bar at the very end, otherwise it intrefers with the following bars and it does not work properly
+# Put the memory_bar at the very end and the gpu_bar before the other bars, otherwise they intrefer with the following bars and it does not work properly
