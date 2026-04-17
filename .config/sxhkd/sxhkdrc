@@ -146,10 +146,10 @@ super + shift + ctrl + b
 
 # i3lock-fancy and switching off the monitor
 super + shift + x
-  /usr/bin/i3lock-fancy
+  /usr/bin/i3lock-fancy -gp -t "Man nalye?"
 
 super + shift + ctrl + x
-  /usr/bin/i3lock-fancy && xset dpms force off
+  /usr/bin/i3lock-fancy -gp -t "Man nalye?" && xset dpms force off
 
 
 # show volume in window 10
