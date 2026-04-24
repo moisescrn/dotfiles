@@ -9,6 +9,9 @@
 min=20
 max=80
 
+# To block the computer it is sufficient to block the keyboard
+KEYBOARD="AT Translated Set 2 keyboard"
+
 # Prints current percentage
 function get_current_percentage() {
   init_comm=$(acpi)
@@ -22,7 +25,12 @@ function get_current_percentage() {
 perc=$(get_current_percentage)
 
 if [ $perc -le $(($min + 5)) ]; then
-  /usr/bin/systemctl poweroff
+  /sbin/shutdown -a now
+  /usr/bin/kitty --hold -e zsh -c "/usr/bin/echo -ne '\n Nivel de batería bajo. ¡Conécta el dispositivo a la corriente! \n'" &
+  /usr/bin/kitty --hold -e zsh -c "/usr/bin/echo -ne '\n El dispositivo se va a bloquear en 120s \n'" &
+  sleep 120
+  /usr/bin/kitty --hold -e zsh -c "/usr/bin/echo -ne '\n Dispositivo bloqueado \n'" &
+  /usr/bin/xinput disable "$KEYBOARD"
 fi
 
 if [ $perc -le $(($min + 10)) ]; then
