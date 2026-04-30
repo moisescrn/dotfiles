@@ -30,3 +30,8 @@ bspc rule -a Screenkey manage=off
 ~/scripts/bar/brightness_bar.sh &
 /usr/bin/unclutter --timeout 0.33 --jitter 0 --ignore-scrolling &
 ~/scripts/toggling/toggle_touchpad.sh &
+/usr/bin/zathura ~/Documentos/tareas.pdf &
+
+sleep 1
+/usr/bin/bspc desktop -f '^2' &
+/usr/bin/zathura ~/Documentos/Universidad/2026SS/NumericalRelativityAlcubierre.pdf &
