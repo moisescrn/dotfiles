@@ -91,6 +91,16 @@ zathura2() {
 zathura3() {
   zathura "$1" & disown && bspc node -k
 }
+#
+# open file with okular and directly make it independent
+okular2() {
+  okular "$1" & disown
+}
+
+# as before but now closing terminal
+okular3() {
+  okular "$1" & disown && bspc node -k
+}
 
 # open and edit markdown file
 typora2() {
