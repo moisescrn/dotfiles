@@ -76,6 +76,17 @@ alias wifis='nmcli device wifi list' # shows all aviable wifi connections
 # alias brillo='brightnessctl --device=amdgpu_bl1 s 30840' # set the brightness to 50%
 alias mount_andr='jmtpfs' # uses the jmtpfs package to mount an android device connected through USB, to unmount use the usual comand umount
 alias tengwriptor='python3 ~/Programacion/Tengwriptor/text_transcriber.py -c'
+alias mpv='mpv --input-ipc-server=/tmp/mpvsocket'
+alias download='yt-dlp'
+
+# start a playlist
+playmusic(){
+  mpv --shuffle --loop-playlist --input-ipc-server=/tmp/mpvsocket $1/*.mp3
+}
+# start a playlist
+playmusic_ord(){
+  mpv --loop-playlist --input-ipc-server=/tmp/mpvsocket $1/*.mp3
+}
 
 # make directory and cd into it
 mkcd() {

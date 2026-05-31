@@ -2,6 +2,7 @@
 # "SHELL_command"
 #   keysym
 
+# ---------- Control volume ----------
 # mute volume
 "${HOME}/scripts/volume.sh mute"
   XF86AudioMute
@@ -14,7 +15,7 @@
 "${HOME}/scripts/volume.sh raise"
   XF86AudioRaiseVolume
 
-
+# ---------- Control brightness ----------
 # raise brightness
 "${HOME}/scripts/brightness.sh raise"
   XF86MonBrightnessUp
@@ -23,6 +24,28 @@
 "${HOME}/scripts/brightness.sh lower"
   XF86MonBrightnessDown
 
+# ---------- Open windows ----------
 # show open windows with rofi
 "/usr/bin/rofi -show window"
   Mod4 + F1
+
+# ---------- Control mpv display ----------
+# toggle between pause and continue song
+"${HOME}/scripts/mpv_control/mpv_toggle.sh"
+  XF86AudioPlay
+
+# previous song in playlist
+"${HOME}/scripts/mpv_control/mpv_prev.sh"
+  XF86AudioPrev
+
+# next song in playlist
+"${HOME}/scripts/mpv_control/mpv_next.sh"
+  XF86AudioNext
+
+# 5s backwards song in playlist
+"${HOME}/scripts/mpv_control/mpv_relprev.sh"
+  Control+Mod2 + F8
+
+# 5s forwards song in playlist
+"${HOME}/scripts/mpv_control/mpv_relnext.sh"
+  Control+Mod2 + F10
