@@ -66,7 +66,7 @@ alias lla='lsd -lha --group-dirs=first'
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
 alias gdb='gdb -q'
-alias graphics='amdgpu_top --gui & disown'
+#alias graphics='amdgpu_top --gui & disown'
 
 alias l='clear' # clears the terminal
 alias rm='rm -vI' # "safer" remove
@@ -78,6 +78,8 @@ alias mount_andr='jmtpfs' # uses the jmtpfs package to mount an android device c
 alias tengwriptor='python3 ~/Programacion/Tengwriptor/text_transcriber.py -c'
 alias mpv='mpv --input-ipc-server=/tmp/mpvsocket'
 alias download='yt-dlp'
+alias check_errors='journalctl -b | ccze | grep "rror"'
+alias ccze='ccze -F ~/.config/cczerc/cczerc.config'
 
 # start a playlist
 playmusic(){
@@ -122,6 +124,7 @@ typora2() {
 typora3() {
   typora "$1" & disown && bspc node -k
 }
+
 # open image with pinta and directly make it independent
 #pinta2() {
 #  pinta "$1" & disown
@@ -131,6 +134,21 @@ typora3() {
 #pinta3() {
 #  pinta "$1" & disown && bspc node -k
 #}
+
+# open audio or video display
+mpv2() {
+  mpv "$1" & disown
+}
+
+# as before but now closing terminal
+mpv3() {
+  mpv "$1" & disown && bspc node -k
+}
+
+# tail logs
+tail2() {
+    tail -f "$1" | ts
+}
 
 # Bindkeys
 # -- -- -- -- -- -- -- -- -- --

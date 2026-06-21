@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # NAME
-#     toggles_touchpad.sh - Toggles between enablind and disabling the touchpad
+#     toggles_touchpad.sh - Toggles between enabling and disabling the touchpad
 # SYNOPSIS
 #     toggle_touchpad.sh
 # suggested location: ~/scripts/toggle_touhcpad.sh
@@ -24,8 +24,8 @@ function get_status() {
 
 # Variables
 status=$(get_status)
-DISPLAY=":0"
-XAUTHORITY="/home/ringanaaro/.Xauthority"
+#DISPLAY=":0"
+#XAUTHORITY="/home/ringanaaro/.Xauthority"
 TOUCHPAD="SYNA32C4:00 06CB:CE17 Touchpad"
 
 export DISPLAY XAUTHORITY

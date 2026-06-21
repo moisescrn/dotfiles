@@ -24,6 +24,31 @@ syntax on
 set ignorecase
 set splitbelow         " New window after split comes up below
 
+" Disable arrows
+" Normal mode
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+" Message
+nnoremap <Up>    :echo "Use k"<CR>
+nnoremap <Down>  :echo "Use j"<CR>
+nnoremap <Left>  :echo "Use h"<CR>
+nnoremap <Right> :echo "Use l"<CR>
+
+" Insert mode
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" Visual mode
+vnoremap <Up> <Nop>
+vnoremap <Down> <Nop>
+vnoremap <Left> <Nop>
+vnoremap <Right> <Nop>
+
+
 " Change comment and string colors
         " Too see how the comments are called, put the cursor on a comment and run
         " :echo synIDattr(synID(line("."), col("."), 1), "name")"
