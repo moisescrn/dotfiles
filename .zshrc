@@ -81,6 +81,11 @@ alias download='yt-dlp'
 alias check_errors='journalctl -b | ccze | grep "rror"'
 alias ccze='ccze -F ~/.config/cczerc/cczerc.config'
 
+# look in history
+lkhist() {
+    grep "$1" ~/.zsh_history
+}
+
 # start a playlist
 playmusic(){
   mpv --shuffle --loop-playlist --input-ipc-server=/tmp/mpvsocket $1/*.mp3
@@ -180,7 +185,7 @@ SAVEHIST=10000
 # alias clearhist='echo '' > ~/.zsh_history' IT JUST DOES NOT WORK
 
 # Path
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ringanaaro/.local/bin:/usr/local/texlive/2025/bin/x86_64-linux
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ringanaaro/.local/bin:/usr/local/texlive/2025/bin/x86_64-linux:/usr/bin
 
 # Custom functions
 # Set victim target

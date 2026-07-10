@@ -9,7 +9,7 @@ time=$(date +%R)
 #time="21:45"
 
 echo $date ",-," $time > current_time.txt
-python3 ~/Programacion/Tengwriptor/text_transcriber.py -csmdf "formal" -p 5,0.57,0.03 current_time.txt
+python3 ~/Programacion/Tengwriptor/text_transcriber.py -csmdf "formal" -p 5,0.57,0.03 -n dec current_time.txt
 # convert to png
 pdftoppm -png -singlefile -r 2000 current_time.pdf temp_date
 # make the background transparent

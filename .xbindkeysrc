@@ -29,7 +29,7 @@
 "/usr/bin/rofi -show window"
   Mod4 + F1
 
-# ---------- Control mpv display ----------
+# ---------- Control mpv ----------
 # toggle between pause and continue song
 "${HOME}/scripts/mpv_control/mpv_toggle.sh"
   XF86AudioPlay
@@ -49,3 +49,15 @@
 # 5s forwards song in playlist
 "${HOME}/scripts/mpv_control/mpv_relnext.sh"
   Control+Mod2 + F10
+
+# Go to the beginning of the current file
+"${HOME}/scripts/mpv_control/mpv_beginning_file.sh"
+  Shift+Mod2 + F8
+
+# Go to the beginning of the next file (the same as only F9)
+"${HOME}/scripts/mpv_control/mpv_next.sh"
+  Shift+Mod2 + F10
+
+# Kill running playlist (actually whole mpv)
+"${HOME}/scripts/mpv_control/mpv_kill.sh"
+  Control+Shift+Mod2+Mod4 + F9

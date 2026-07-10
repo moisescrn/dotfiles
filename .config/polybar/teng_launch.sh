@@ -18,6 +18,7 @@ polybar primary -c ~/.config/polybar/workspace.ini &
 polybar ethernet_bar -c ~/.config/polybar/teng_current.ini &
 # polybar vpn_bar -c ~/.config/polybar/current.ini &
 # polybar target_to_hack -c ~/.config/polybar/current.ini &
+polybar mpv_bar -c ~/.config/polybar/teng_current.ini &
 
 polybar gpu_bar -c ~/.config/polybar/teng_current.ini &
 polybar website_bar -c ~/.config/polybar/teng_current.ini &

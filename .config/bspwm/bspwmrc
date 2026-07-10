@@ -16,6 +16,7 @@ bspc rule -a Chromium desktop='^2'
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
+#/usr/bin/feh --bg-fill ~/Imágenes/Fondos/WP.jpg
 /usr/bin/feh --bg-fill ~/Imágenes/Fondos/fingolfin_and_melkor_2.png
 #/usr/bin/feh --bg-fill ~/Imágenes/Fondos/fire_roomen2.png
 ~/.config/polybar/teng_launch.sh &
@@ -30,8 +31,9 @@ bspc rule -a Screenkey manage=off
 ~/scripts/bar/brightness_bar.sh &
 /usr/bin/unclutter --timeout 0.33 --jitter 0 --ignore-scrolling &
 ~/scripts/toggling/toggle_touchpad.sh &
-/usr/bin/zathura ~/Documentos/tareas.pdf &
+/usr/bin/kitty --hold -e zsh -c "cd ~/Programacion/ToDo && ./ToDo" &
+#/usr/bin/zathura ~/Documentos/tareas.pdf &
 
-sleep 1
-/usr/bin/bspc desktop -f '^2' &
-/usr/bin/zathura ~/Documentos/Universidad/2026SS/NumericalRelativityAlcubierre.pdf &
+#sleep 1
+#/usr/bin/bspc desktop -f '^2' &
+#/usr/bin/zathura ~/Documentos/Universidad/2026SS/NumericalRelativityAlcubierre.pdf &

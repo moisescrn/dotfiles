@@ -1,7 +1,5 @@
 #!/bin/sh
 
-
-
 #function speed(){
 #  INTERFACE="wlo1"
 #  RX_OLD=$(cat /sys/class/net/wlo1/statistics/rx_bytes)
@@ -18,11 +16,16 @@
 #}
 
 
-
 CONNECTED=$(/usr/bin/ip a show dev wlo1 | grep "state" | awk '{print $9}') # prints UP if connected and down if disconnected
+VPN=$(/usr/bin/ip address | grep "tun0") # if non-empty VPN is connected
 
-if [ "$CONNECTED" = "UP" ]; then
-  echo "%{F#2495e7}󰈀 %{F#ffffff}$(/usr/bin/ip a show dev wlo1 | grep "inet " | awk '{print $2}' | cut -d '/' -f 1)"
-else
-    echo "%{F#c0ca33}Sin conexión a internet"
+if [ -n "$VPN" ]; then  # if VPN connected show VPN-IP
+    echo "%{F#1bbf3e}󰆧 %{F#ffffff}$(/usr/sbin/ip a show | grep "tun0" | grep "scope" | awk '{print $2}' | cut -d '/' -f 1)"
+
+else                    # else show normal IP
+    if [ "$CONNECTED" = "UP" ]; then
+      echo "%{F#2495e7}󰈀 %{F#ffffff}$(/usr/bin/ip a show dev wlo1 | grep "inet " | awk '{print $2}' | cut -d '/' -f 1)"
+    else
+        echo "%{F#c0ca33}Sin conexión"
+    fi
 fi
