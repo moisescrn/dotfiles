@@ -63,6 +63,8 @@ highlight cNumber ctermfg=51
 " Python:
 highlight pythonComment ctermfg=109
 
+" toml:
+highlight tomlComment ctermfg=245 " Comments
 
 " Open terminal at botom, full width, 4 lines tall
 function! OpenSmallTerm()
