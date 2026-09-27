@@ -80,6 +80,8 @@ alias mpv='mpv --input-ipc-server=/tmp/mpvsocket'
 alias download='yt-dlp'
 alias check_errors='journalctl -b | ccze | grep "rror"'
 alias ccze='ccze -F ~/.config/cczerc/cczerc.config'
+alias tesseract='tesseract -l spa+eng+deu'
+alias rainfrog='rainfrog --driver postgres'
 
 # look in history
 lkhist() {
