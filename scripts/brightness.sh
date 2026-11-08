@@ -5,7 +5,7 @@
 #     brightness.sh <raise|lower>
 # suggested location: ~/scripts/brightness.sh
 #
-step=6168 # number of points to increase/decrease brightness (it corresponds to 10%, as the maximum is 61680)
+step=6553 # number of points to increase/decrease brightness (it corresponds to 10%, as the maximum is 65535)
 max=$(brightnessctl --device=amdgpu_bl1 m) # maximum amount of brightness
 current=$(brightnessctl --device=amdgpu_bl1 g) # current amount of brightness
 

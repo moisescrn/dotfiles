@@ -1,6 +1,8 @@
 ---
 description: SDD - coordinates the full SDD flow with planner, implementer and reviewer, and passes context between phases
 mode: primary
+model: deepseek/deepseek-v4-pro
+reasoningEffort: high
 permissions:
   - action: edit
     resource: "*"
@@ -36,7 +38,7 @@ If the request is a small change that doesn't deserve a spec, suggest using /fea
 1. **Spec**: ask @planner to write specs/NNN-name/spec.md. If it returns questions, ask them to the user one at a time and call it again with the answers
 2. **Clarification**: ask @reviewer to review the spec as QA (detect only). Show the result to the user; if there are problems, @planner fixes the spec. STOP until the user approves the spec.
 3. **Plan and tasks**: ask @planner for plan.md and tasks.md from the approved spec. Show a summary and STOP until the user approves them
-4. **Implementation**: call @implementer ONCE per task (T1, T2…), in order. After each task check that the tests are passed; if not, stop and notify the user
+4. **Implementation**: call @implementer ONCE per task (T1, T2…), in order. After each task check that the tests are passed; if not, stop and notify the user. In case there are some tasks that do not depend on each other, call @implementer several times (maximally 3 times) to implement the tasks parallely
 5. **Validation**: ask @reviewer to validate the spec RF by RF
 6. **Corrections**: if @reviewer says CHANGES REQUIRED, go back to @implementer with the exact list and then to @reviewer again. Maximum 2 rounds; if it still fails, stop and explain to the user what is happening
 7. **Closing**: summarize what has been done, the verdict from @reviewer and what is pending
@@ -55,3 +57,4 @@ The subagents do NOT see this conversation. In every call, give them everything 
 - Never skip a user approval (spec, and plan with tasks)
 - Don't resolve doubts yourself: ask the user
 - Inform the user in one line at the start of each phase
+- If any of the subagents does not behave correctly (e.g.: implementer does not write code into the files, ...) then let me know and I will handle it

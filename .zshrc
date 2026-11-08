@@ -5,12 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# startx and xbindkeys after logging in
-if [ -z "$DISPLAY" ] && [[ $(tty) = /dev/tty1 ]]; then
-  xbindkeys &
-  exec startx 
-fi
-
 # Lines configured by zsh-newuser-install
 #HISTFILE=~/.histfile
 #HISTSIZE=1000
@@ -65,23 +59,27 @@ alias lla='lsd -lha --group-dirs=first'
 # git
 alias dotfiles='/usr/bin/git --git-dir="$HOME/.dotfiles/" --work-tree="$HOME"'
 
-alias gdb='gdb -q'
-#alias graphics='amdgpu_top --gui & disown'
+# River commands
+alias st_river='/home/ringanaaro/.config/river/autostart'
+alias rr='make CONFIG=examples/my_config.c'
 
+alias gdb='gdb -q'
+alias graphics='amdgpu_top --gui & disown'
+
+alias lfd="ls -l /proc/$$/fd" # list file descriptors
 alias l='clear' # clears the terminal
 alias rm='rm -vI' # "safer" remove
 alias shimg='kitty +kitten icat' # show an image
 alias shtdnw='shutdown now'
 alias wifis='nmcli device wifi list' # shows all aviable wifi connections
-# alias brillo='brightnessctl --device=amdgpu_bl1 s 30840' # set the brightness to 50%
 alias mount_andr='jmtpfs' # uses the jmtpfs package to mount an android device connected through USB, to unmount use the usual comand umount
 alias tengwriptor='python3 ~/Programacion/Tengwriptor/text_transcriber.py -c'
 alias mpv='mpv --input-ipc-server=/tmp/mpvsocket'
-alias download='yt-dlp'
-alias check_errors='journalctl -b | ccze | grep "rror"'
-alias ccze='ccze -F ~/.config/cczerc/cczerc.config'
+alias check_errors='journalctl -b | grep "rror"'
+alias check_jour='journalctl -b | tee /home/ringanaaro/journal.log'
 alias tesseract='tesseract -l spa+eng+deu'
 alias rainfrog='rainfrog --driver postgres'
+alias start_project='cp -r ${HOME}/Programacion/Template/* .'
 
 # look in history
 lkhist() {
@@ -122,25 +120,15 @@ okular3() {
   okular "$1" & disown && bspc node -k
 }
 
-# open and edit markdown file
-typora2() {
-  typora "$1" & disown
-}
-
-# as before but now closing terminal
-typora3() {
-  typora "$1" & disown && bspc node -k
-}
-
 # open image with pinta and directly make it independent
-#pinta2() {
-#  pinta "$1" & disown
-#}
+pinta2() {
+  pinta "$1" & disown
+}
 
 # as before but now closing terminal
-#pinta3() {
-#  pinta "$1" & disown && bspc node -k
-#}
+pinta3() {
+  pinta "$1" & disown && bspc node -k
+}
 
 # open audio or video display
 mpv2() {
@@ -187,20 +175,7 @@ SAVEHIST=10000
 # alias clearhist='echo '' > ~/.zsh_history' IT JUST DOES NOT WORK
 
 # Path
-PATH=/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ringanaaro/.local/bin:/usr/local/texlive/2025/bin/x86_64-linux:/usr/bin
-
-# Custom functions
-# Set victim target
-function settarget(){
-    ip_address=$1
-    machine_name=$2
-    echo "$ip_address $machine_name" > /home/ringanaaro/.config/polybar/scripts/target
-}
-
-# Clear victim target
-function cleartarget(){
-    echo '' > /home/ringanaaro/.config/polybar/scripts/target
-}
+PATH=/usr/local/sbin:/usr/local/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/ringanaaro/.local/bin:/usr/local/texlive/2025/bin/x86_64-linux:/usr/bin:/home/ringanaaro/jrwm
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -213,3 +188,6 @@ path=('/home/ringanaaro/.juliaup/bin' $path)
 export PATH
 
 # <<< juliaup initialize <<<
+
+# opencode
+export PATH=/home/ringanaaro/.opencode/bin:$PATH
